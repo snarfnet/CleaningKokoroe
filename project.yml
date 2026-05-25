@@ -2,7 +2,7 @@ name: CleaningKokoroe
 options:
   bundleIdPrefix: com.snarfnet
   deploymentTarget:
-    iOS: "16.0"
+    iOS: "17.0"
   xcodeVersion: "16.0"
   generateEmptyDirectories: true
 
