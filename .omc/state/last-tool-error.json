@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"magick \\\"/c/Users/Windows/Downloads/ChatGPT Image 2026年5月24日 16_30_15.png\\\" -resize 1024x1024 \\\"/c/Users/Windows/CleaningKokoroe/CleaningKokoroe/Assets.xcassets/AppIcon.appiconset/icon_102...",
+  "error": "Exit code 127\n/usr/bin/bash: line 1: magick: command not found",
+  "timestamp": "2026-05-25T08:41:36.183Z",
+  "retry_count": 1
+}
