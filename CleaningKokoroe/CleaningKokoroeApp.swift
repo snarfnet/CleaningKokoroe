@@ -26,7 +26,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
-        MobileAds.shared.start(completionHandler: nil)
+        Task { await MobileAds.shared.start() }
         return true
     }
 }

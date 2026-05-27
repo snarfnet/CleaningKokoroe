@@ -9,13 +9,13 @@ struct BannerAdView: UIViewRepresentable {
         banner.adUnitID = adUnitID
         banner.translatesAutoresizingMaskIntoConstraints = false
         DispatchQueue.main.async {
-            if let windowScene = UIApplication.shared.connectedScenes
-                .compactMap({ $0 as? UIWindowScene })
-                .first,
-               let root = windowScene.keyWindow?.rootViewController {
-                banner.rootViewController = root
-                banner.load(Request())
-            }
+            guard let windowScene = UIApplication.shared.connectedScenes
+                .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
+                ?? UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let root = windowScene.windows.first(where: { $0.isKeyWindow })?.rootViewController
+                      ?? windowScene.windows.first?.rootViewController else { return }
+            banner.rootViewController = root
+            banner.load(Request())
         }
         return banner
     }
