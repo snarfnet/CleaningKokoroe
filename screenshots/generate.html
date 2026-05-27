@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Clean Note Screenshots</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; justify-content: center; font-family: -apple-system, 'Hiragino Sans', sans-serif; }
+
+  .phone {
+    width: 430px; height: 932px;
+    background: #f2f2f7;
+    border-radius: 48px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .status-bar {
+    height: 54px; padding: 14px 32px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 15px; font-weight: 600;
+    background: #fff;
+  }
+  .status-bar .time { font-size: 16px; font-weight: 700; }
+  .status-icons { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+
+  .nav-bar {
+    height: 44px; background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 600;
+    border-bottom: 0.5px solid #c6c6c8;
+    position: relative;
+  }
+  .nav-bar .left, .nav-bar .right {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-size: 22px; color: #34a853;
+  }
+  .nav-bar .left { left: 20px; }
+  .nav-bar .right { right: 20px; }
+
+  .content { padding: 16px; overflow: hidden; }
+
+  .card {
+    background: #fff; border-radius: 16px; padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .fengshui-card {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .fengshui-label { font-size: 12px; color: #8e8e93; margin-bottom: 4px; }
+  .fengshui-spot { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .fengshui-advice { font-size: 14px; color: #8e8e93; line-height: 1.4; }
+  .fengshui-badge {
+    background: rgba(52,168,83,0.12); border-radius: 12px; padding: 12px 16px;
+    text-align: center; min-width: 70px;
+  }
+  .fengshui-dir { font-size: 18px; font-weight: 700; }
+  .fengshui-color { font-size: 11px; color: #8e8e93; margin-top: 2px; }
+
+  .tip-cat {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    background: rgba(52,168,83,0.15); color: #34a853;
+    padding: 4px 10px; border-radius: 20px;
+  }
+  .tip-meta { font-size: 12px; color: #8e8e93; float: right; margin-top: 2px; }
+  .tip-title { font-size: 17px; font-weight: 600; margin: 10px 0 6px; }
+  .tip-body { font-size: 14px; color: #8e8e93; line-height: 1.5; }
+  .tip-warning {
+    background: rgba(255,149,0,0.1); border-radius: 8px; padding: 8px 10px;
+    font-size: 12px; color: #ff9500; margin-top: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .tip-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 10px;
+  }
+  .tip-count { font-size: 12px; color: #c7c7cc; }
+  .tip-arrows { display: flex; gap: 16px; }
+  .tip-arrows span { font-size: 18px; color: #34a853; cursor: pointer; }
+
+  .search-bar {
+    display: flex; align-items: center; gap: 8px;
+    background: #e5e5ea; border-radius: 10px; padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .search-bar .icon { color: #8e8e93; font-size: 14px; }
+  .search-bar .placeholder { color: #8e8e93; font-size: 15px; }
+
+  .pills {
+    display: flex; gap: 8px; overflow-x: hidden; flex-wrap: nowrap;
+  }
+  .pill {
+    font-size: 13px; padding: 6px 12px; border-radius: 20px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .pill.active { background: rgba(52,168,83,0.2); color: #34a853; font-weight: 600; }
+  .pill.inactive { background: #e5e5ea; color: #3c3c43; }
+
+  .ad-bar {
+    position: absolute; bottom: 34px; left: 0; right: 0;
+    height: 50px; background: #e8e8ed;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: #8e8e93;
+  }
+
+  .home-indicator {
+    position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+    width: 134px; height: 5px; background: #000; border-radius: 3px;
+  }
+
+  /* Screenshot 2: Timer */
+  .timer-circle {
+    width: 220px; height: 220px; border-radius: 50%;
+    border: 12px solid rgba(52,168,83,0.15);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 20px auto;
+    position: relative;
+  }
+  .timer-circle::after {
+    content: '';
+    position: absolute; top: -6px; left: -6px; right: -6px; bottom: -6px;
+    border-radius: 50%;
+    border: 12px solid transparent;
+    border-top-color: #34a853;
+    border-right-color: #34a853;
+    transform: rotate(-10deg);
+  }
+  .timer-time {
+    font-size: 48px; font-weight: 300;
+    font-family: 'SF Mono', 'Menlo', monospace;
+    letter-spacing: 2px;
+  }
+  .timer-label { font-size: 13px; color: #8e8e93; margin-top: 4px; }
+
+  .timer-presets {
+    display: flex; gap: 10px; justify-content: center; margin: 20px 0;
+  }
+  .preset {
+    width: 48px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 500;
+  }
+  .preset.active { background: #34a853; color: #fff; }
+  .preset.inactive { background: #e5e5ea; color: #3c3c43; border: 1px solid #d1d1d6; }
+
+  .timer-buttons {
+    display: flex; gap: 16px; justify-content: center; margin: 16px 0;
+  }
+  .btn-start {
+    background: #34a853; color: #fff; border: none; border-radius: 10px;
+    padding: 12px 32px; font-size: 17px; font-weight: 600;
+  }
+  .btn-reset {
+    background: #e5e5ea; color: #3c3c43; border: 1px solid #d1d1d6; border-radius: 10px;
+    padding: 12px 24px; font-size: 17px;
+  }
+
+  .task-card {
+    background: #e5e5ea; border-radius: 12px; padding: 16px;
+    text-align: center; margin: 16px 20px 0;
+  }
+  .task-label { font-size: 12px; color: #8e8e93; margin-bottom: 6px; }
+  .task-text { font-size: 15px; font-weight: 600; }
+
+  /* Screenshot 3: Category filter view */
+  .tip-list-item {
+    background: #fff; border-radius: 12px; padding: 14px 16px;
+    margin-bottom: 8px;
+  }
+  .tip-list-cat {
+    font-size: 11px; font-weight: 700; color: #34a853;
+    background: rgba(52,168,83,0.12); padding: 3px 8px; border-radius: 12px;
+    display: inline-block; margin-bottom: 6px;
+  }
+  .tip-list-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .tip-list-desc { font-size: 13px; color: #8e8e93; line-height: 1.4; }
+
+  /* Screenshot 4: Feature highlight */
+  .feature-screen {
+    background: linear-gradient(180deg, #34a853 0%, #2d8f47 100%);
+    height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; color: #fff;
+    text-align: center; padding: 40px;
+  }
+  .feature-icon { font-size: 80px; margin-bottom: 24px; }
+  .feature-title { font-size: 32px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
+  .feature-sub { font-size: 18px; opacity: 0.85; line-height: 1.5; margin-bottom: 40px; }
+  .feature-stats {
+    display: flex; gap: 32px;
+  }
+  .feature-stat { text-align: center; }
+  .feature-num { font-size: 36px; font-weight: 800; }
+  .feature-desc { font-size: 13px; opacity: 0.7; margin-top: 4px; }
+
+  /* Overlay text for App Store */
+  .screenshot-label {
+    position: absolute; top: 0; left: 0; right: 0;
+    background: linear-gradient(180deg, rgba(52,168,83,0.95) 0%, rgba(52,168,83,0) 100%);
+    padding: 60px 24px 80px;
+    color: #fff; text-align: center; z-index: 10;
+  }
+  .screenshot-label h2 { font-size: 26px; font-weight: 800; line-height: 1.3; }
+  .screenshot-label p { font-size: 15px; opacity: 0.9; margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<!-- Screenshot 1: Main Screen -->
+<div class="phone" id="ss1">
+  <div class="screenshot-label">
+    <h2>毎日の掃除が<br>もっと楽しくなる</h2>
+    <p>10,000件の清掃豆知識</p>
+  </div>
+  <div class="status-bar">
+    <span class="time">9:41</span>
+    <div class="status-icons">
+      <span>&#9679;&#9679;&#9679;&#9679;</span>
+      <span>&#128267;</span>
+    </div>
+  </div>
+  <div class="nav-bar">
+    <span class="left">&#x21BB;</span>
+    清掃の心得
+    <span class="right">&#x23F2;</span>
+  </div>
+  <div class="content" style="padding-top: 120px;">
+    <div class="card fengshui-card">
+      <div>
+        <div class="fengshui-label">今日の風水掃除</div>
+        <div class="fengshui-spot">玄関</div>
+        <div class="fengshui-advice">良い気の入口。靴を揃えて<br>たたきを水拭きしましょう</div>
+      </div>
+      <div class="fengshui-badge">
+        <div class="fengshui-dir">北東</div>
+        <div class="fengshui-color">白・金色</div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="tip-cat">キッチン</span>
+        <span class="tip-meta">&#9733; 初級 &#x1F552; 5分</span>
+      </div>
+      <div class="tip-title">電子レンジの簡単クリーニング</div>
+      <div class="tip-body">水を入れたコップにレモン汁を数滴加え、3分加熱。蒸気で汚れが浮き、布でサッと拭くだけできれいに。</div>
+      <div class="tip-warning">&#9888; 加熱直後は熱いので注意</div>
+      <div class="tip-nav">
+        <span class="tip-count">42 / 10,000件</span>
+        <div class="tip-arrows"><span>&#x276E;</span><span>&#x276F;</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="ad-bar">広告</div>
+  <div class="home-indicator"></div>
+</div>
+
+<!-- Screenshot 2: Timer -->
+<div class="phone" id="ss2">
+  <div class="screenshot-label">
+    <h2>ホウキ針タイマーで<br>時短掃除</h2>
+    <p>3分から30分まで自由に設定</p>
+  </div>
+  <div class="status-bar">
+    <span class="time">9:41</span>
+    <div class="status-icons">
+      <span>&#9679;&#9679;&#9679;&#9679;</span>
+      <span>&#128267;</span>
+    </div>
+  </div>
+  <div class="nav-bar">
+    ホウキ針タイマー
+    <span class="right" style="font-size:15px;">閉じる</span>
+  </div>
+  <div class="content" style="text-align:center; padding-top: 100px;">
+    <div class="timer-circle">
+      <div class="timer-time">07:23</div>
+      <div class="timer-label">10分</div>
+    </div>
+    <div class="timer-presets">
+      <div class="preset inactive">3</div>
+      <div class="preset inactive">5</div>
+      <div class="preset active">10</div>
+      <div class="preset inactive">15</div>
+      <div class="preset inactive">30</div>
+    </div>
+    <div class="timer-buttons">
+      <button class="btn-start">一時停止</button>
+      <button class="btn-reset">リセット</button>
+    </div>
+    <div class="task-card">
+      <div class="task-label">今の一手</div>
+      <div class="task-text">シンクの水滴を切る</div>
+    </div>
+  </div>
+  <div class="home-indicator"></div>
+</div>
+
+<!-- Screenshot 3: Category Search -->
+<div class="phone" id="ss3">
+  <div class="screenshot-label">
+    <h2>20カテゴリから<br>ぴったりの知恵を検索</h2>
+    <p>キッチン・浴室・トイレなど</p>
+  </div>
+  <div class="status-bar">
+    <span class="time">9:41</span>
+    <div class="status-icons">
+      <span>&#9679;&#9679;&#9679;&#9679;</span>
+      <span>&#128267;</span>
+    </div>
+  </div>
+  <div class="nav-bar">
+    <span class="left">&#x21BB;</span>
+    清掃の心得
+    <span class="right">&#x23F2;</span>
+  </div>
+  <div class="content" style="padding-top: 100px;">
+    <div class="search-bar">
+      <span class="icon">&#x1F50D;</span>
+      <span class="placeholder">浴室</span>
+    </div>
+    <div class="pills" style="margin-bottom: 12px;">
+      <span class="pill inactive">全て</span>
+      <span class="pill inactive">キッチン</span>
+      <span class="pill active">浴室</span>
+      <span class="pill inactive">トイレ</span>
+      <span class="pill inactive">リビング</span>
+      <span class="pill inactive">寝室</span>
+    </div>
+    <div class="tip-list-item">
+      <span class="tip-list-cat">浴室</span>
+      <div class="tip-list-title">鏡のウロコ汚れを落とす方法</div>
+      <div class="tip-list-desc">クエン酸水をスプレーしてラップで30分パック。スポンジで軽くこするだけ。</div>
+    </div>
+    <div class="tip-list-item">
+      <span class="tip-list-cat">浴室</span>
+      <div class="tip-list-title">排水口のぬめり予防</div>
+      <div class="tip-list-desc">アルミホイルを丸めて排水口に入れておくと、金属イオンでぬめりを抑制。</div>
+    </div>
+    <div class="tip-list-item">
+      <span class="tip-list-cat">浴室</span>
+      <div class="tip-list-title">カビ取りの正しい順番</div>
+      <div class="tip-list-desc">天井→壁→床の順で上から下へ。胞子が落ちてくるので上から攻めるのが鉄則。</div>
+    </div>
+    <div class="tip-list-item">
+      <span class="tip-list-cat">浴室</span>
+      <div class="tip-list-title">シャワーヘッドの水垢除去</div>
+      <div class="tip-list-desc">クエン酸水に一晩つけ置きすると、穴詰まりも水垢もすっきり。</div>
+    </div>
+  </div>
+  <div class="ad-bar">広告</div>
+  <div class="home-indicator"></div>
+</div>
+
+<!-- Screenshot 4: Feature Highlight -->
+<div class="phone" id="ss4">
+  <div class="feature-screen">
+    <div class="feature-icon">&#x1F9F9;</div>
+    <div class="feature-title">清掃の心得<br>Clean Note</div>
+    <div class="feature-sub">掃除のプロが教える<br>暮らしの知恵を毎日お届け</div>
+    <div class="feature-stats">
+      <div class="feature-stat">
+        <div class="feature-num">10,000</div>
+        <div class="feature-desc">清掃豆知識</div>
+      </div>
+      <div class="feature-stat">
+        <div class="feature-num">20</div>
+        <div class="feature-desc">カテゴリ</div>
+      </div>
+      <div class="feature-stat">
+        <div class="feature-num">365</div>
+        <div class="feature-desc">風水掃除</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// To capture: open in browser, right-click each phone → "Inspect" → device toolbar → set to 1290x2796
+// Or use html2canvas / puppeteer to export as PNG
+console.log('Open DevTools → Set device to 1290x2796 → Screenshot each .phone element');
+</script>
+</body>
+</html>
