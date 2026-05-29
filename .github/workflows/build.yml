@@ -72,7 +72,7 @@ jobs:
             -archivePath build/CleaningKokoroe.xcarchive \
             CODE_SIGN_STYLE=Automatic \
             DEVELOPMENT_TEAM=83VGKGSQUH \
-            CURRENT_PROJECT_VERSION=${{ github.run_number }} \
+            CURRENT_PROJECT_VERSION=$(( ${{ github.run_number }} + 210 )) \
             -allowProvisioningUpdates \
             -authenticationKeyPath ~/.appstoreconnect/private_keys/AuthKey_WDXGY9WX55.p8 \
             -authenticationKeyID WDXGY9WX55 \
