@@ -5,18 +5,10 @@ import AppTrackingTransparency
 @main
 struct CleaningKokoroeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @State private var attRequested = false
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-                    guard !attRequested else { return }
-                    attRequested = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        ATTrackingManager.requestTrackingAuthorization { _ in }
-                    }
-                }
         }
     }
 }
@@ -28,5 +20,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         Task { await MobileAds.shared.start() }
         return true
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        guard !UserDefaults.standard.bool(forKey: "att_requested") else { return }
+        UserDefaults.standard.set(true, forKey: "att_requested")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            ATTrackingManager.requestTrackingAuthorization { _ in }
+        }
     }
 }
