@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1780056629340,
+  "projectRoot": "C:\\Users\\Windows\\CleaningKokoroe",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "CleaningKokoroe": {
+      "path": "CleaningKokoroe",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1780056629257,
+      "keyFiles": [
+        "CleaningKokoroeApp.swift",
+        "ContentView.swift",
+        "Models.swift",
+        "TimerView.swift",
+        "TipStore.swift"
+      ]
+    },
+    "screenshots": {
+      "path": "screenshots",
+      "purpose": null,
+      "fileCount": 15,
+      "lastAccessed": 1780056629259,
+      "keyFiles": [
+        "01_main.png",
+        "02_timer.png",
+        "03_search.png",
+        "04_feature.png",
+        "capture.js"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "",
+      "accessCount": 2,
+      "lastAccessed": 1780056643284,
+      "type": "directory"
+    }
+  ],
+  "userDirectives": []
+}

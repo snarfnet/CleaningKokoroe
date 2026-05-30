@@ -44,7 +44,7 @@ struct ContentView: View {
                 TimerView()
             }
         }
-        .tint(Color("AccentGreen", bundle: nil))
+        .tint(Color.green)
     }
 }
 
