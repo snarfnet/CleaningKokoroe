@@ -59,9 +59,45 @@
   "hotPaths": [
     {
       "path": "",
-      "accessCount": 2,
-      "lastAccessed": 1780056643284,
+      "accessCount": 3,
+      "lastAccessed": 1780318231759,
       "type": "directory"
+    },
+    {
+      "path": "CleaningKokoroe\\Ads\\BannerAdView.swift",
+      "accessCount": 2,
+      "lastAccessed": 1780318264383,
+      "type": "file"
+    },
+    {
+      "path": "CleaningKokoroe\\CleaningKokoroeApp.swift",
+      "accessCount": 1,
+      "lastAccessed": 1780318179323,
+      "type": "file"
+    },
+    {
+      "path": "CleaningKokoroe\\ContentView.swift",
+      "accessCount": 1,
+      "lastAccessed": 1780318179663,
+      "type": "file"
+    },
+    {
+      "path": "CleaningKokoroe\\TipStore.swift",
+      "accessCount": 1,
+      "lastAccessed": 1780318185024,
+      "type": "file"
+    },
+    {
+      "path": "CleaningKokoroe\\Models.swift",
+      "accessCount": 1,
+      "lastAccessed": 1780318186237,
+      "type": "file"
+    },
+    {
+      "path": "CleaningKokoroe\\TimerView.swift",
+      "accessCount": 1,
+      "lastAccessed": 1780318213693,
+      "type": "file"
     }
   ],
   "userDirectives": []

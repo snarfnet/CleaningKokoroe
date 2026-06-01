@@ -1,7 +1,15 @@
 {
-  "agents": [],
-  "total_spawned": 0,
+  "agents": [
+    {
+      "agent_id": "a7b6d20cf5329ac06",
+      "agent_type": "oh-my-claudecode:architect",
+      "started_at": "2026-06-01T12:50:17.960Z",
+      "parent_mode": "none",
+      "status": "running"
+    }
+  ],
+  "total_spawned": 1,
   "total_completed": 0,
   "total_failed": 0,
-  "last_updated": "2026-05-29T12:10:27.934Z"
+  "last_updated": "2026-06-01T12:50:18.087Z"
 }

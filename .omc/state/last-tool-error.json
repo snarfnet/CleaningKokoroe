@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"python3 << 'PYEOF'\\nfrom PIL import Image, ImageDraw, ImageFont\\nimport os, math\\n\\n# みみ年齢 app UI: dark navy + cyan theme\\n# Sizes: iphone67=1290x2796, iphone65=1242x2688, iphone55=1242x22...",
-  "error": "Exit code 2\n/usr/bin/bash: -c: line 197: unexpected EOF while looking for matching `''",
-  "timestamp": "2026-05-29T12:21:03.484Z",
+  "tool_input_preview": "{\"command\":\"cd /c/Users/Windows/MimiNenrei && git add MimiNenrei/ContentView.swift && git commit -m \\\"$(cat <<'EOF'\\nFix crowded UI layout\\n\\nWrap Home and Test views in ScrollView, adjust font sizes\\...",
+  "error": "Exit code 1\n[main af8bafe] Fix crowded UI layout\n 10 files changed, 74 insertions(+), 72 deletions(-)\nTo https://github.com/snarfnet/MimiNenrei.git\n ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs to 'https://github.com/snarfnet/MimiNenrei.git'\nhint: Updates were rejected because the remote contains work that you do not\nhint: have locally. This is usually caused by another repository pushing to\nhint: the same ref. If you want to integrate the remote changes, use\nhi...",
+  "timestamp": "2026-05-30T22:23:42.229Z",
   "retry_count": 1
 }
