@@ -12,7 +12,7 @@ struct BannerAdView: UIViewRepresentable {
             guard let windowScene = UIApplication.shared.connectedScenes
                 .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
                 ?? UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-            let root = windowScene.windows.first(where: \.isKeyWindow)?.rootViewController
+            let root = windowScene.keyWindow?.rootViewController
             banner.rootViewController = root
             banner.load(Request())
         }
