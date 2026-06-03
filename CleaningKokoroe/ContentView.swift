@@ -19,8 +19,10 @@ struct ContentView: View {
                 }
                 .background(Color(.systemGroupedBackground))
 
-                BannerAdView(adUnitID: "ca-app-pub-9404799280370656/2663934779")
-                    .frame(height: 50)
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    BannerAdView(adUnitID: "ca-app-pub-9404799280370656/2663934779")
+                        .frame(height: 50)
+                }
             }
             .navigationTitle("清掃の心得")
             .navigationBarTitleDisplayMode(.inline)
