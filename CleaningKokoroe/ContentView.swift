@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    let adsReady: Bool
     @State private var store = TipStore()
     @State private var showTimer = false
 
@@ -19,7 +20,7 @@ struct ContentView: View {
                 }
                 .background(Color(.systemGroupedBackground))
 
-                if UIDevice.current.userInterfaceIdiom == .phone {
+                if UIDevice.current.userInterfaceIdiom == .phone && adsReady {
                     BannerAdView(adUnitID: "ca-app-pub-9404799280370656/2663934779")
                         .frame(height: 50)
                 }

@@ -5,12 +5,14 @@ import AppTrackingTransparency
 @main
 struct CleaningKokoroeApp: App {
     @State private var attRequested = false
+    @State private var adsReady = false
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(adsReady: adsReady)
                 .task {
                     _ = await MobileAds.shared.start()
+                    adsReady = true
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
                     guard !attRequested else { return }
